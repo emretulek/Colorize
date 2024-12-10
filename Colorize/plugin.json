@@ -1,0 +1,13 @@
+{
+  "ID": "61869BDAE4C75739D5A47D5A7FE3C9D8",
+  "ActionKeyword": "colorize",
+  "Name": "Colorize",
+  "Description": "Color Picker",
+  "Author": "Wox",
+  "Version": "1.0.0",
+  "Language": "csharp",
+  "Website": "",
+  "ExecuteFileName": "Colorize.dll",
+  "IcoPath": "Images\\colorize.png",
+  "Disabled": false
+}

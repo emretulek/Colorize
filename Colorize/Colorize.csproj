@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Wox.Plugin" Version="1.3.159" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="plugin.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Content Include="Images\**\*">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <Target Name="CopyToProjectFolder" AfterTargets="Build">
+    <PropertyGroup>
+      <ProjectOutputFolder>$(OutputPath)$(ProjectName)</ProjectOutputFolder>
+    </PropertyGroup>
+
+    <MakeDir Directories="$(ProjectOutputFolder)" />
+
+    <Copy SourceFiles="$(OutputPath)plugin.json" DestinationFolder="$(ProjectOutputFolder)" />
+    <Copy SourceFiles="@(Content)" DestinationFolder="$(ProjectOutputFolder)\Images\%(RecursiveDir)" />
+    <Copy SourceFiles="$(OutputPath)$(AssemblyName).dll" DestinationFolder="$(ProjectOutputFolder)" />
+  </Target>
+</Project>

@@ -1,0 +1,68 @@
+﻿<Window x:Class="Colorize.ColorPicker"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Colorize"
+        mc:Ignorable="d"
+        WindowStyle="ToolWindow"
+        SizeToContent="WidthAndHeight"
+        Title="Colorize" MinWidth="250">
+    <Grid>
+        <StackPanel Margin="10">
+            <Grid Margin="0 0 0 10">
+                <TextBlock FontSize="18" HorizontalAlignment="Center">
+                    <Run Text="CO" Foreground="Red"/>
+                    <Run Text="LO" Foreground="Green"/>
+                    <Run Text="RI" Foreground="Blue"/>
+                    <Run Text="ZE" Foreground="Orange"/>
+                </TextBlock>
+                <Button Content="🖌️" Grid.Column="1" FontSize="12" Width="25"  HorizontalAlignment="Right" Click="ButtonPicker_Click"/>
+            </Grid>
+
+            <Grid Margin="0 0 0 10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Border Background="{Binding ColorPreview}" BorderBrush="Gray" BorderThickness="1" Width="20" Height="20"/>
+                <TextBox x:Name="TextHex" Text="{Binding Hex, Mode=TwoWay}" Grid.Column="1" FontSize="14" FontWeight="Bold" Margin="10 0" VerticalAlignment="Center" HorizontalContentAlignment="Stretch" KeyDown="TextBox_KeyDown"/>
+                <Button Content="📋" Grid.Column="2" FontSize="14" Width="25" HorizontalAlignment="Right" Click="ButtonCopyHex_Click"/>
+            </Grid>
+            <Grid Margin="0 0 0 10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Border Background="{Binding ColorPreview}" BorderBrush="Gray" BorderThickness="1" Width="20" Height="20"/>
+                <TextBox x:Name="TextHsl" Text="{Binding HSL, Mode=TwoWay}" Grid.Column="1" FontSize="14" FontWeight="Bold" Margin="10 0" VerticalAlignment="Center" HorizontalContentAlignment="Stretch" KeyDown="TextBox_KeyDown"/>
+                <Button Content="📋" Grid.Column="2" FontSize="14" Width="25" HorizontalAlignment="Right" Click="ButtonCopyHsl_Click"/>
+            </Grid>
+            <Grid Margin="0 0 0 10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Border Background="{Binding ColorPreview}" BorderBrush="Gray" BorderThickness="1" Width="20" Height="20"/>
+                <TextBox x:Name="TextRgb" Text="{Binding RGB, Mode=TwoWay}" Grid.Column="1" FontSize="14" FontWeight="Bold" Margin="10 0" VerticalAlignment="Center" HorizontalContentAlignment="Stretch" KeyDown="TextBox_KeyDown"/>
+                <Button Content="📋" Grid.Column="2" FontSize="14" Width="25" HorizontalAlignment="Right" Click="ButtonCopyRgb_Click"/>
+            </Grid>
+
+            <StackPanel>
+                <Slider Name="sliderRed" Background="Red" Minimum="0" Maximum="255" Value="{Binding Red}" Margin="0 5"/>
+                <Slider Name="sliderGreen" Background="Green" Minimum="0" Maximum="255" Value="{Binding Green}" Margin="0 5"/>
+                <Slider Name="sliderBlue" Background="Blue" Minimum="0" Maximum="255" Value="{Binding Blue}" Margin="0 5"/>
+            </StackPanel>
+        </StackPanel>
+
+        <Popup Name="MouseColorPopup" Panel.ZIndex="9999" IsOpen="True" AllowsTransparency="True" StaysOpen="True" Placement="Absolute">
+            <Border Background="Transparent" BorderBrush="#1F496F" BorderThickness="1" Width="50" Height="50"/>
+        </Popup>
+        <Popup Name="MouseClickPopup" Panel.ZIndex="9999" IsOpen="True" AllowsTransparency="True" StaysOpen="True" Placement="Absolute">
+            <Border PreviewMouseDown="PickColor" IsHitTestVisible="True" Background="#01FFFFFF" Width="15" Height="15"/>
+        </Popup>
+    </Grid>
+</Window>

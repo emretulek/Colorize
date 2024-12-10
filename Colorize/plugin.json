@@ -6,7 +6,7 @@
   "Author": "Wox",
   "Version": "1.0.0",
   "Language": "csharp",
-  "Website": "",
+  "Website": "https://github.com/emretulek/Colorize",
   "ExecuteFileName": "Colorize.dll",
   "IcoPath": "Images\\colorize.png",
   "Disabled": false

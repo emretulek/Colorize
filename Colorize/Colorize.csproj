@@ -3,6 +3,12 @@
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
     <UseWPF>true</UseWPF>
+    <Title>Colorize</Title>
+    <Description>Color Picker</Description>
+    <PackageProjectUrl>https://github.com/emretulek/Colorize/</PackageProjectUrl>
+    <PackageIcon>colorize.png</PackageIcon>
+    <RepositoryUrl>https://github.com/emretulek/Colorize/</RepositoryUrl>
+    <PackageTags>Colorize, Wox, wox plugin, color picker</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
@@ -10,6 +16,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Images\colorize.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
     <None Update="plugin.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

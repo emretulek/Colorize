@@ -51,12 +51,6 @@ Colorize is a powerful and user-friendly color picker plugin for [Wox](https://g
 
 ---
 
-## Contributing
-
-Contributions are welcome! If you have ideas, bug reports, or improvements, feel free to open an issue or submit a pull request.
-
----
-
 ## License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
